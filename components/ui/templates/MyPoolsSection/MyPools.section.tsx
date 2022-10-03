@@ -22,9 +22,12 @@ type ContractData = {
     gammTokenLabel: string;
     tokenName: string;
   };
+  gamm_staking_denom: string;
+  gamm_staking_denom_balance: Coin;
   rewards: RewardItem[];
   stakedValue: string;
   claimRewards: () => Promise<any>;
+  stakeTokens: () => Promise<any>;
 };
 
 const MyPoolsSection = () => {
@@ -89,15 +92,28 @@ const MyPoolsSection = () => {
       );
       console.log({ cw, chainNames });
       for (let item of contracts) {
+        let { denom: gamm_staking_denom } = await cw?.queryContractSmart(
+          item.lockdrop_addr,
+          {
+            get_config: {},
+          }
+        );
+        //  @ts-ignore
+        let key = (await window.keplr.getKey("osmo-test-4")).bech32Address;
+        let gamm_staking_denom_balance = await cw.getBalance(
+          key,
+          gamm_staking_denom
+        );
         let { reward_contracts } = await cw?.queryContractSmart(
           item.lockdrop_addr,
           {
             all_reward_contracts: {},
           }
         );
-        let { value: stakedValue } = currentWallet?.address
+
+        let { value: stakedValue } = key
           ? await cw?.queryContractSmart(item.lockdrop_addr, {
-              staked_value: { address: currentWallet?.address },
+              staked_value: { address: key },
             })
           : { value: "0" };
 
@@ -119,10 +135,10 @@ const MyPoolsSection = () => {
           // denom: native: gamm / pool / 691;
           // last_update_block: 6.978863e6;
           // pending_rewards: "99999999999999999984";
-          let { pending_rewards } = currentWallet?.address
+          let { pending_rewards } = key
             ? await cw.queryContractSmart(reward_contract, {
                 get_pending_rewards: {
-                  address: currentWallet?.address,
+                  address: key,
                 },
               })
             : { pending_rewards: "0" };
@@ -136,6 +152,8 @@ const MyPoolsSection = () => {
           meta: item,
           rewards,
           stakedValue,
+          gamm_staking_denom,
+          gamm_staking_denom_balance,
           async claimRewards() {
             //   @ts-ignore
             await window.keplr.enable("osmo-test-4");
@@ -147,18 +165,58 @@ const MyPoolsSection = () => {
             //   @ts-ignore
             let key = (await window.keplr.getKey("osmo-test-4")).bech32Address;
             for (let rwd of rewards) {
-              await client.execute(
+              await client
+                .execute(
+                  key,
+                  rwd.contract_addr,
+                  {
+                    claim: {},
+                  },
+                  {
+                    amount: coins("1000000", "uosmo"),
+                    gas: "1000000",
+                  }
+                )
+                .then(() => {
+                  alert("success!");
+                  window.location.reload();
+                });
+            }
+          },
+          async stakeTokens() {
+            const ctr = item;
+            let amount_to_stake =
+              prompt(
+                `How much of ${gamm_staking_denom} would you like to stake? (maximum by default)`,
+                gamm_staking_denom_balance.amount
+              ) || "0";
+            //   @ts-ignore
+            await window.keplr.enable("osmo-test-4");
+            let client = await SigningCosmWasmClient.connectWithSigner(
+              "https://testnet-rpc.osmosis.zone:443",
+              // @ts-ignore
+              await window.keplr.getOfflineSignerAuto("osmo-test-4")
+            );
+            //   @ts-ignore
+            let key = (await window.keplr.getKey("osmo-test-4")).bech32Address;
+            await client
+              .execute(
                 key,
-                rwd.contract_addr,
+                item.lockdrop_addr,
                 {
-                  claim: {},
+                  stake: {},
                 },
                 {
                   amount: coins("1000000", "uosmo"),
                   gas: "1000000",
-                }
-              );
-            }
+                },
+                "",
+                coins(amount_to_stake, gamm_staking_denom)
+              )
+              .then(() => {
+                alert("success!");
+                window.location.reload();
+              });
           },
         });
       }
@@ -176,6 +234,7 @@ const MyPoolsSection = () => {
               projectName={ctr.meta.title}
               launchDate={ctr.meta.launchDate}
               lockedGammBalance={ctr.stakedValue + ctr.meta.gammTokenLabel}
+              onStake={ctr.stakeTokens}
               onClaim={ctr.claimRewards}
             />
           );
