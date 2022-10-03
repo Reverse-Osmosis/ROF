@@ -2,7 +2,10 @@ import { MyPools } from "./MyPools.styled";
 import Card from "../../organisms/CardOrganism/Card.organism";
 import { useEffect } from "react";
 import { useWallet } from "@cosmos-kit/react";
-import { CosmWasmClient } from "@cosmjs/cosmwasm-stargate";
+import {
+  CosmWasmClient,
+  SigningCosmWasmClient,
+} from "@cosmjs/cosmwasm-stargate";
 
 const MyPoolsSection = () => {
   const {
@@ -82,6 +85,15 @@ const MyPoolsSection = () => {
         data.push({
           meta: item,
           rewards,
+          async claimRewards() {
+            //   @ts-ignore
+            await window.keplr.enable("osmo-test-4");
+            return SigningCosmWasmClient.connectWithSigner(
+              "https://testnet-rpc.osmosis.zone:443",
+              // @ts-ignore
+              await window.keplr.getOfflineSigner()
+            );
+          },
         });
       }
       console.log({ data });
