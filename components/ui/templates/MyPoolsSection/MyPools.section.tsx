@@ -88,11 +88,21 @@ const MyPoolsSection = () => {
           async claimRewards() {
             //   @ts-ignore
             await window.keplr.enable("osmo-test-4");
-            return SigningCosmWasmClient.connectWithSigner(
+            let client = await SigningCosmWasmClient.connectWithSigner(
               "https://testnet-rpc.osmosis.zone:443",
               // @ts-ignore
               await window.keplr.getOfflineSigner()
             );
+            for (let rwd of this.rewards) {
+              await client.execute(
+                currentWallet!.address,
+                rwd.contract_addr,
+                {
+                  claim: {},
+                },
+                "auto"
+              );
+            }
           },
         });
       }
