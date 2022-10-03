@@ -1,4 +1,4 @@
-import { useWallet } from '@cosmos-kit/react';
+import { useWallet } from "@cosmos-kit/react";
 import {
   Box,
   Center,
@@ -7,10 +7,10 @@ import {
   Icon,
   Stack,
   useColorModeValue,
-  Text
-} from '@chakra-ui/react';
-import { MouseEventHandler, useEffect, useMemo } from 'react';
-import { FiAlertTriangle } from 'react-icons/fi';
+  Text,
+} from "@chakra-ui/react";
+import { MouseEventHandler, useEffect, useMemo } from "react";
+import { FiAlertTriangle } from "react-icons/fi";
 import {
   Astronaut,
   Error,
@@ -25,11 +25,11 @@ import {
   Rejected,
   RejectedWarn,
   WalletConnectComponent,
-  ChainCard
-} from '../components';
-import { getWalletPrettyName } from '@cosmos-kit/config';
-import { ChainName } from '@cosmos-kit/core';
-import { assets as chainAssets } from 'chain-registry';
+  ChainCard,
+} from "../components";
+import { getWalletPrettyName } from "@cosmos-kit/config";
+import { ChainName } from "@cosmos-kit/core";
+import { assets as chainAssets } from "chain-registry";
 
 export const WalletSection = ({ chainName }: { chainName?: ChainName }) => {
   const walletManager = useWallet();
@@ -42,7 +42,7 @@ export const WalletSection = ({ chainName }: { chainName?: ChainName }) => {
     address,
     message,
     currentWalletName,
-    chains
+    chains,
   } = walletManager;
 
   const chainOptions = useMemo(
@@ -58,7 +58,7 @@ export const WalletSection = ({ chainName }: { chainName?: ChainName }) => {
           icon: assets
             ? assets[0]?.logo_URIs?.svg || assets[0]?.logo_URIs?.png
             : undefined,
-          disabled: false
+          disabled: false,
         };
       }),
     [chains]
@@ -93,7 +93,7 @@ export const WalletSection = ({ chainName }: { chainName?: ChainName }) => {
       }
       connecting={<Connecting />}
       connected={
-        <Connected buttonText={'My Wallet'} onClick={onClickOpenView} />
+        <Connected buttonText={"My Wallet"} onClick={onClickOpenView} />
       }
       rejected={<Rejected buttonText="Reconnect" onClick={onClickConnect} />}
       error={<Error buttonText="Change Wallet" onClick={onClickOpenView} />}
@@ -135,47 +135,5 @@ export const WalletSection = ({ chainName }: { chainName?: ChainName }) => {
     />
   );
 
-  return (
-    <Center py={16}>
-      <Grid
-        w="full"
-        maxW="sm"
-        templateColumns="1fr"
-        rowGap={4}
-        alignItems="center"
-        justifyContent="center"
-      >
-        {chainName && (
-          <GridItem marginBottom={'20px'}>
-            <ChainCard
-              prettyName={chain?.label || chainName}
-              icon={chain?.icon}
-            />
-          </GridItem>
-        )}
-        <GridItem px={6}>
-          <Stack
-            justifyContent="center"
-            alignItems="center"
-            borderRadius="lg"
-            bg={useColorModeValue('white', 'blackAlpha.400')}
-            boxShadow={useColorModeValue(
-              '0 0 2px #dfdfdf, 0 0 6px -2px #d3d3d3',
-              '0 0 2px #363636, 0 0 8px -2px #4f4f4f'
-            )}
-            spacing={4}
-            px={4}
-            py={{ base: 6, md: 12 }}
-          >
-            {userInfo}
-            {addressBtn}
-            <Box w="full" maxW={{ base: 52, md: 64 }}>
-              {connectWalletButton}
-            </Box>
-            <GridItem>{connectWalletWarn}</GridItem>
-          </Stack>
-        </GridItem>
-      </Grid>
-    </Center>
-  );
+  return <div>{connectWalletButton}</div>;
 };

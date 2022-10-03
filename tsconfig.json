@@ -23,8 +23,12 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "components/ui/layout/HeaderLayout"  ],
   "exclude": [
     "node_modules"
-  ]
+  ],
+   "paths": {
+    "root/*": ["/*"],
+    "@assets/*": ["./src/assets/*"],
+  }
 }
