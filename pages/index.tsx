@@ -122,8 +122,11 @@ export default function Home() {
   const lockAmount = (e, index: number) => {
     const amount = e.target[0].value;
     const nameToken = listProjects[index].token;
-    writeProject[index]?.stake("auto", undefined, coins(amount, nameToken)).then(alert).catch(e=> console.log(e));
-  }
+    writeProject[index]
+      ?.stake("auto", undefined, coins(amount, nameToken))
+      .then(alert)
+      .catch((e) => console.log(e));
+  };
 
   return (
     <MainLayoutLayout>
@@ -135,11 +138,16 @@ export default function Home() {
         </Head>
         {listProjects.length > 0 &&
           address &&
-          listProjects.map((el, index) => <div key={el.contract} id={index} style={{margin: "1rem"}}><Card status={el?.status}/></div>)}
-          {/* listProjects.map((el, index) => {el.status == "OPEN" && <div key={el.contract} id={index} style={{margin: "1rem"}}><Card status={el?.status} name={el.name} value={el.balance.value} close = {el.close}/></div>})} */}
+          listProjects.map((el, index) => (
+            <div key={el.contract} id={index} style={{ margin: "1rem" }}>
+              <Card status={el?.status} />
+            </div>
+          ))}
+        {/* listProjects.map((el, index) => {el.status == "OPEN" && <div key={el.contract} id={index} style={{margin: "1rem"}}><Card status={el?.status} name={el.name} value={el.balance.value} close = {el.close}/></div>})} */}
         {/* <WalletSection chainName={chainName} /> */}
 
         {/* <div>
+
           HackCW20 Balance:{" "}
           {walletStatus === WalletStatus.Disconnected
             ? "Connect wallet!"
