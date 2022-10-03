@@ -16,10 +16,23 @@ export const InputBoxSubWrapper = styled.div`
   justify-content: center;
   align-items: flex-start;
 `
-export const InoutBoxP = styled.h3`
-    font-size: 1.2rem;
+export const InputBoxP = styled.p`
+  font-size: 1.2rem;
 `
 
-export const InoutBoxH2 = styled.h3`
-    font-size: 2.2rem;
+export const InnputBoxH2 = styled.h3`
+  font-size: 2.2rem;
+`
+export const InputBoxBalanceWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
+`
+export const InputBoxBalance = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+  gap: 0.5rem;
 `

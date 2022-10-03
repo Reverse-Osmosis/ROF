@@ -1,24 +1,53 @@
-import {InoutBoxH2, InoutBoxP, InputBoxSubWrapper, InputBoxWrapper} from "./InputBox.styled";
+import {
+    InnputBoxH2,
+    InoutBoxH2,
+    InoutBoxP, InputBoxBalance,
+    InputBoxBalanceWrapper,
+    InputBoxP,
+    InputBoxSubWrapper,
+    InputBoxWrapper
+} from "./InputBox.styled";
 import {IconAtom} from "../../atoms/IconAtom/Icon.atom";
 
 interface Props {
     label?: string;
     value?: string;
-    projectInput?: boolean;
+    isProjectInput?: boolean;
+    isProjectAmountInput?: boolean;
+    balance?: string;
+    balanceToken?: string;
 }
 
-export const InputBoxMolecule = ( props: Props) => {
+export const InputBoxMolecule = (props: Props) => {
 
-    const {label = 'hola', value = 'hola', projectInput = true} = props;
+    const {label = 'hola', value = 'hola', isProjectInput = false, isProjectAmountInput = false, balanceToken = '', balance = ''} = props;
 
     return (
         <InputBoxWrapper>
             <InputBoxSubWrapper>
-                <InoutBoxP>{label}</InoutBoxP>
-                <InoutBoxH2>{value}</InoutBoxH2>
+                <InputBoxP>{label}</InputBoxP>
+                <InnputBoxH2>{value}</InnputBoxH2>
             </InputBoxSubWrapper>
             {
-                projectInput && <IconAtom src='https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745' width='4.2rem'/>
+                isProjectInput &&
+                <IconAtom
+                    src='https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745'
+                    width='4.2rem'
+                />
+            }
+            {
+                isProjectAmountInput &&
+                <InputBoxBalance>
+                    <InputBoxP>{`Balance: ${balance}`}</InputBoxP>
+                    <InputBoxBalanceWrapper>
+                        <IconAtom
+                            src='https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745'
+                            width='1.8rem'
+                            height={'1.8rem'}
+                        />
+                        <InputBoxP>{balanceToken}</InputBoxP>
+                    </InputBoxBalanceWrapper>
+                </InputBoxBalance>
             }
         </InputBoxWrapper>
     )
