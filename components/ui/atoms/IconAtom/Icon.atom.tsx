@@ -6,6 +6,7 @@ interface Props {
   height?: string;
   width?: string;
   alt?: string;
+  rounded?: boolean;
   onclick?: () => void;
 }
 
@@ -17,6 +18,7 @@ const IconAtom = (props: Props) => {
     alt,
     width = "",
     onclick = () => {},
+    rounded = false,
   } = props;
 
   return (
@@ -28,6 +30,9 @@ const IconAtom = (props: Props) => {
         alt={alt ? alt : "logo"}
         className={propsClass}
         onClick={onclick}
+        style={{
+          borderRadius: rounded ? "100%" : "0%",
+        }}
       />
     </>
   );
