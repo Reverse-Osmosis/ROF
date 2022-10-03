@@ -1,9 +1,9 @@
-import {useState} from "react";
+import { useState } from "react";
 
 interface InputAtomProps {
   label: string;
   value: string;
-  onChange
+  onChange: any;
   placeholder?: string;
 }
 
