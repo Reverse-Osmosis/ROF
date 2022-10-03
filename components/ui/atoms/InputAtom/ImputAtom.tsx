@@ -1,9 +1,9 @@
-import {useState} from "react";
+import { useState } from "react";
 
 interface InputAtomProps {
   label: string;
   value: string;
-  onChange
+  onChange;
   placeholder?: string;
 }
 
@@ -18,6 +18,7 @@ const ImputAtom = (props: InputAtomProps) => {
         placeholder={placeholder}
         value={value}
         onChange={onChange}
+        style={{ background: "none", border: "none" }}
       />
     </div>
   );

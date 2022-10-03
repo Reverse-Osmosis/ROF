@@ -3,12 +3,15 @@ import styled from "styled-components";
 export const PopUpWrapper = styled.div`
   position: absolute;
   top: 0;
+  left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
-`
+  min-width: 95vw;
+  min-height: 100vh;
+  width: 100%;
+  height: 100%;
+`;
 
 export const PopUpSubWrapper = styled.div`
   padding: 8.7rem 21rem;
@@ -21,17 +24,17 @@ export const PopUpSubWrapper = styled.div`
   background: rgba(34, 21, 81, 0.6);
   backdrop-filter: blur(35px);
   gap: 2rem;
-`
+`;
 
 export const PopUpButtonsWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: calc(2.5rem + 1vw);
-`
+`;
 export const PopUpPercentButtons = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: calc(0.6rem + 1vw);
-`
+`;
