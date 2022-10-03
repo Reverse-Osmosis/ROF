@@ -3,6 +3,7 @@ import styled from 'styled-components';
 interface IconWrapperI {
     height?: string;
     width?: string;
+    margin?: string;
 }
 
 export const IconWrapper = styled.img<IconWrapperI>` {
@@ -10,5 +11,6 @@ export const IconWrapper = styled.img<IconWrapperI>` {
   width: ${({width}) => width};
   transition: all 0.2s ease-in-out;
   cursor: pointer;
+  margin: ${({margin}) => margin};
 }
 `;
