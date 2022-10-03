@@ -65,7 +65,7 @@ const Card = ({
       </CardProjectInfoWrapper>
       <CardProjectLaunch>
         <p>Launch Date</p>
-        <H2Atom text={launchDate} />
+        <H2Atom text={new Date(launchDate).toDateString()} />
       </CardProjectLaunch>
       <CardProjectRewardsWrapper>
         <p>Locked GAMM Balance</p>

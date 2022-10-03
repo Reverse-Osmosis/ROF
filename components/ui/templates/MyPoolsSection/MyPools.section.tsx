@@ -80,7 +80,7 @@ const MyPoolsSection = () => {
           lockdrop_addr:
             "osmo1wulgfp7u08x6an5enwqpmy2alffdaqgyfjg3y8svrfnnflgxla4q04mzj9",
           title: "Wosmosis",
-          launchDate: "2022-10-03T14:11:55.008Z",
+          launchDate: "2022-11-03T14:11:55.008Z",
           gammTokenLabel: "ATOM,OSMO",
           tokenName: "CEL",
         },
