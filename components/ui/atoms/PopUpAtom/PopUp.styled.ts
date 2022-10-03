@@ -20,12 +20,18 @@ export const PopUpSubWrapper = styled.div`
   z-index: 50;
   background: rgba(34, 21, 81, 0.6);
   backdrop-filter: blur(35px);
-  gap: 1rem;
+  gap: 2rem;
 `
 
-export const PopUpButtonsWrapper = styled.h2`
+export const PopUpButtonsWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 100%;
+  gap: calc(2.5rem + 1vw);
+`
+export const PopUpPercentButtons = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: calc(0.6rem + 1vw);
 `
