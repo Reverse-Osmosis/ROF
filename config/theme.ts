@@ -15,6 +15,9 @@ export const theme = {
       '700': '#1b2cbc',
       '800': '#1624b5',
       '900': '#0d17a9'
+    },
+    custom: {
+      '900': '#0A0674'
     }
   },
   breakPoints: {
