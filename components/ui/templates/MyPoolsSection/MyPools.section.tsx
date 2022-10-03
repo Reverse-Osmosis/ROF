@@ -78,6 +78,14 @@ const MyPoolsSection = () => {
       let contracts = [
         {
           lockdrop_addr:
+            "osmo10le38fxk78ezwn35kgjvhx8d2nlcl2v3ugwfg5s98z7qc02wdensn94geq",
+          title: "Babylon",
+          launchDate: "2023-05-03T14:11:55.008Z",
+          gammTokenLabel: "ATOM,OSMO",
+          tokenName: "BABL",
+        },
+        {
+          lockdrop_addr:
             "osmo1wulgfp7u08x6an5enwqpmy2alffdaqgyfjg3y8svrfnnflgxla4q04mzj9",
           title: "Wosmosis",
           launchDate: "2022-11-03T14:11:55.008Z",
