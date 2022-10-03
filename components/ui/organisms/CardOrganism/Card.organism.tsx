@@ -4,6 +4,7 @@ import {CardWrapper} from "./Card.styled";
 const Card = () => {
     return (
         <CardWrapper>
+            <p>hola</p>
         </CardWrapper>
     )
 }
