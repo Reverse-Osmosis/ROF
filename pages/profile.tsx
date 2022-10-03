@@ -1,11 +1,11 @@
 import {Layout} from "../styles/Layout.styled";
-import Card from "../components/ui/organisms/CardOrganism/Card.organism";
+import MyPoolsSection from "../components/ui/templates/MyPoolsSection/MyPools.section";
 
 const Profile = () => {
     return (
         <Layout>
             <h1>Home</h1>
-            <Card/>
+            <MyPoolsSection/>
         </Layout>
     )
 }
