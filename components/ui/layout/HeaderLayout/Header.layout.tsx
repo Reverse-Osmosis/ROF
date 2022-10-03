@@ -8,9 +8,6 @@ import {useRouter} from "next/router";
 // import HeaderIcon from "@assets/home-icon.svg";
 import IconAtom from "../../atoms/IconAtom/Icon.atom";
 import {WalletSection} from "../../../wallet";
-import userICON from '../../../../public/userIcon.png'
-import userSVG from "../../atoms/svgs/userSVG";
-
 
 const chainName = "osmosistestnet";
 

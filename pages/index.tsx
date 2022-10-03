@@ -58,6 +58,7 @@ const coin: Asset = chainassets.assets.find(
 ) as Asset;
 
 export default function Home() {
+
     const {colorMode, toggleColorMode} = useColorMode();
 
     const {
@@ -137,6 +138,7 @@ export default function Home() {
                 {/* <WalletSection chainName={chainName} /> */}
 
                 {/* <div>
+
           HackCW20 Balance:{" "}
           {walletStatus === WalletStatus.Disconnected
             ? "Connect wallet!"

@@ -6,6 +6,6 @@ export const MainLayoutWrapper = styled.main`
   align-content: space-between;
 `;
 export const MainLayouChildrenContainer = styled.main`
-  max-width: 72rem;
+  max-width: 80rem;
   margin: 0 auto;
 `;
