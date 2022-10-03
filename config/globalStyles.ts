@@ -36,6 +36,7 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: white;
+    background-color: #170F34;
   }
 
   img, picture, video, canvas, svg {

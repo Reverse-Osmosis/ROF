@@ -27,7 +27,8 @@ import { dependencies, products } from '../config';
 import { WalletStatus } from '@cosmos-kit/core';
 import { Product, Dependency, WalletSection } from '../components';
 import Head from 'next/head';
-import {PopUpAtom} from "../components/ui/atoms/PopUpAtom/PopUp.atom";
+import PopUpAtom from "../components/ui/atoms/PopUpAtom/PopUp.atom";
+import {Layout} from "../styles/Layout.styled";
 
 const library = {
   title: 'OsmoJS',
@@ -94,7 +95,7 @@ export default function Home() {
   }, [cw20Client, address]);
 
   return (
-      <>
+      <Layout>
       <Container maxW="5xl" py={10}>
         <Head>
           <title>Reverse Osmosis</title>
@@ -125,6 +126,6 @@ export default function Home() {
 
       </Container>
       <PopUpAtom/>
-  </>
+  </Layout>
   );
 }

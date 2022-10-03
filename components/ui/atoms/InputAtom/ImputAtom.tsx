@@ -7,7 +7,7 @@ interface InputAtomProps {
   placeholder?: string;
 }
 
-export const ImputAtom = (props: InputAtomProps) => {
+const ImputAtom = (props: InputAtomProps) => {
   const { label, placeholder, value, onChange } = props;
 
   return (
@@ -22,3 +22,5 @@ export const ImputAtom = (props: InputAtomProps) => {
     </div>
   );
 };
+
+export default ImputAtom;

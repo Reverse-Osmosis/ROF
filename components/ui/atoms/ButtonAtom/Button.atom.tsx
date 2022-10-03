@@ -25,7 +25,7 @@ interface ButtonAtomProps {
     padding?: string;
 }
 
-export const ButtonAtom = (props: ButtonAtomProps) => {
+const ButtonAtom = (props: ButtonAtomProps) => {
     let backgroundGradient = `
     linear-gradient(
       180deg,
@@ -86,3 +86,5 @@ export const ButtonAtom = (props: ButtonAtomProps) => {
         </Button>
     );
 };
+
+export default ButtonAtom;

@@ -16,7 +16,7 @@ interface Props {
     textAlign?: string;
 }
 
-export const H2Atom = (props: Props) => {
+const H2Atom = (props: Props) => {
 const { text, fontSize = '3rem', color, fontWeight, margin, padding, fontFamily, fontSizeTablet, marginTablet, fontSizeMobile, marginMobile, boldText, textAlign } = props;
 
   return (
@@ -36,5 +36,6 @@ const { text, fontSize = '3rem', color, fontWeight, margin, padding, fontFamily,
         {text}<b>{boldText}</b>
     </H2Wrapper>
   );
-
 }
+
+export default H2Atom;

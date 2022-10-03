@@ -1,8 +1,8 @@
-import {InputBoxMolecule} from "../../molecules/InputBoxMolecule/InputBox.molecule";
-import {ButtonAtom} from "../ButtonAtom/Button.atom";
+import InputBoxMolecule from "../../molecules/InputBoxMolecule/InputBox.molecule";
+import ButtonAtom from "../ButtonAtom/Button.atom";
 import {PopUpButtonsWrapper, PopUpPercentButtons, PopUpSubWrapper, PopUpWrapper} from "./PopUp.styled";
 
-export const PopUpAtom = ( ) => {
+const PopUpAtom = ( ) => {
     return (
         <PopUpWrapper>
             <PopUpSubWrapper>
@@ -93,3 +93,5 @@ export const PopUpAtom = ( ) => {
         </PopUpWrapper>
     );
 };
+
+export default PopUpAtom;

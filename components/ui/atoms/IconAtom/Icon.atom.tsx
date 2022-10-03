@@ -8,7 +8,7 @@ interface Props {
     alt?: string;
 }
 
-export const IconAtom = ( props : Props) => {
+const IconAtom = ( props : Props) => {
 
     const {src, propsClass, height = '4.5rem', alt, width = ''} = props;
 
@@ -24,3 +24,5 @@ export const IconAtom = ( props : Props) => {
         </>
     )
 }
+
+export default IconAtom;

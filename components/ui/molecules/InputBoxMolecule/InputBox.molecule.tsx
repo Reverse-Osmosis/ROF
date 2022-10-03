@@ -7,7 +7,7 @@ import {
     InputBoxSubWrapper,
     InputBoxWrapper
 } from "./InputBox.styled";
-import {IconAtom} from "../../atoms/IconAtom/Icon.atom";
+import IconAtom from "../../atoms/IconAtom/Icon.atom";
 
 interface Props {
     label?: string;
@@ -18,7 +18,7 @@ interface Props {
     balanceToken?: string;
 }
 
-export const InputBoxMolecule = (props: Props) => {
+const InputBoxMolecule = (props: Props) => {
 
     const {label = 'hola', value = 'hola', isProjectInput = false, isProjectAmountInput = false, balanceToken = '', balance = ''} = props;
 
@@ -52,3 +52,5 @@ export const InputBoxMolecule = (props: Props) => {
         </InputBoxWrapper>
     )
 }
+
+export default InputBoxMolecule;
