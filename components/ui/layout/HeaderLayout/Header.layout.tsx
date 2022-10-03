@@ -13,7 +13,7 @@ function HeaderLayout() {
   const router = useRouter();
   return (
     <HeaderWrapper>
-      <IconAtom src="../../../src/assets/home-icon.svg" />
+      <IconAtom src="/osmosis-split.png" />
       <nav>
         <HeaderNavUl>
           <li>Create</li>
@@ -23,12 +23,12 @@ function HeaderLayout() {
       </nav>
       <p>Get Atom/OSMO LP </p>
       <HeaderLoginWrapper>
-        <IconAtom
-          src="../../../src/assets/home-icon.svg"
+        {/* <IconAtom
+          src="/osmosis-split.png"
           onclick={() => {
             router.push("/profile");
           }}
-        />
+        /> */}
         <WalletSection chainName={chainName} />
       </HeaderLoginWrapper>
     </HeaderWrapper>

@@ -116,6 +116,12 @@ export default function Home() {
 
         {walletStatus === WalletStatus.Disconnected && (
           <Box textAlign="center">
+            <div>
+              <img
+                src="/logo-text-only.png"
+                style={{ maxHeight: "80px" }}
+              ></img>
+            </div>
             <Heading
               as="h3"
               fontSize={{ base: "1xl", sm: "2xl", md: "2xl" }}
