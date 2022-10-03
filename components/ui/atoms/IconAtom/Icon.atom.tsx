@@ -11,7 +11,7 @@ interface Props {
 
 const IconAtom = (props: Props) => {
   const {
-    src,
+    src = '',
     propsClass,
     height = "4.5rem",
     alt,
@@ -20,7 +20,6 @@ const IconAtom = (props: Props) => {
   } = props;
 
   return (
-    <>
       <IconWrapper
         height={height}
         width={width}
@@ -29,7 +28,6 @@ const IconAtom = (props: Props) => {
         className={propsClass}
         onClick={onclick}
       />
-    </>
   );
 };
 
