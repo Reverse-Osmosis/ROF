@@ -119,14 +119,14 @@ export default function Home() {
     }
   }, [cw20Client, address]);
 
-  const lockAmount = (e, index: number) => {
-    const amount = e.target[0].value;
-    const nameToken = listProjects[index].token;
-    writeProject[index]
-      ?.stake("auto", undefined, coins(amount, nameToken))
-      .then(alert)
-      .catch((e) => console.log(e));
-  };
+  // const lockAmount = (e, index: number) => {
+  //   const amount = e.target[0].value;
+  //   const nameToken = listProjects[index].token;
+  //   writeProject[index]
+  //     ?.stake("auto", undefined, coins(amount, nameToken))
+  //     .then(alert)
+  //     .catch((e) => console.log(e));
+  // };
 
   return (
     <MainLayoutLayout>
@@ -139,6 +139,7 @@ export default function Home() {
         {listProjects.length > 0 &&
           address &&
           listProjects.map((el, index) => (
+            // @ts-ignore
             <div key={el.contract} id={index} style={{ margin: "1rem" }}>
               <Card status={el?.status} />
             </div>

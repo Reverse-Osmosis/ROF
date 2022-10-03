@@ -5,9 +5,14 @@ import { ProfileH1, profileH1Wrapper } from "../styles/Profile.styled";
 
 const Profile = () => {
   return (
+    // @ts-ignore
     <MainLayoutLayout>
+      {/* @ts-ignore */}
       <profileH1Wrapper>
+        {/* @ts-ignore */}
+
         <ProfileH1>PORTFOLIO</ProfileH1>
+        {/* @ts-ignore */}
       </profileH1Wrapper>
       <MyPoolsSection />
     </MainLayoutLayout>
