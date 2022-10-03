@@ -1,17 +1,27 @@
-import styled from 'styled-components';
-
+import styled from "styled-components";
 
 export const CardWrapper = styled.div`
-  background-color: ${props => props.theme.colors.custom['900']};
-  width: 35rem;
-  //height: 35rem;
+  background-color: #221551;
+  font-size: 70%;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 1.8rem;
-  padding: 3.6rem 3.4rem 7rem 3.4rem;
-  row-gap: 2.5rem;
+  border-radius: 1rem;
+  row-gap: 1rem;
+  position: relative;
+`;
+export const CardContentWrapper = styled.div`
+  background-color: #221551;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  padding: 1.25rem;
+  row-gap: 1rem;
   position: relative;
 `;
 
@@ -51,6 +61,7 @@ export const CardProjectRewardsWrapper = styled.div`
   justify-content: center;
   align-items: flex-end;
   width: 100%;
+  padding: 1rem 0;
 `;
 
 export const CardProjectRewards = styled.div`
@@ -78,8 +89,8 @@ export const CardProjectTokensBG = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #FFFFFF;
-  border: 1px solid #E2E2E2;
+  background: #ffffff;
+  border: 1px solid #e2e2e2;
   box-shadow: inset 0 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
   width: 4.5rem;
   height: 4.5rem;
@@ -87,8 +98,17 @@ export const CardProjectTokensBG = styled.div`
 `;
 
 export const CardProjectButtonWrapper = styled.div`
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+`;
+export const CardContentAnotherStateWrapper = styled.div`
+  padding-bottom: 2.5rem;
+  font-size: 1.25rem;
+  text-align: right;
+`;
+export const CardIconsWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 `;

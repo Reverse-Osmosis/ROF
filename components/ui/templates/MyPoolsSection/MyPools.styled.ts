@@ -7,4 +7,5 @@ export const MyPools = styled.div`
   align-items: center;
   flex-wrap: wrap;
   gap: 2rem;
-`
+  padding: 8rem 0;
+`;
