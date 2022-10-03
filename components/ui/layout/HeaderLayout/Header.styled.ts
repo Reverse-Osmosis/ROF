@@ -4,6 +4,7 @@ export const HeaderWrapper = styled.header`
   width: 100%;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   padding-top: 0.75rem;
 `;
 
