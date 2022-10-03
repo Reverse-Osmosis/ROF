@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const CardWrapper = styled.div`
-  //background-color: ${props => props.theme.colors.custom['900']};
+  //background-color: ${(props) => props.theme.colors.custom["900"]};
   background: linear-gradient(180deg, #221551 0%, #221551 100%);
   width: 35rem;
   //height: 35rem;
@@ -11,6 +11,7 @@ export const CardWrapper = styled.div`
   align-items: center;
   border-radius: 1rem;
   row-gap: 1rem;
+  cursor: pointer;
   position: relative;
 `;
 export const CardContentWrapper = styled.div`
