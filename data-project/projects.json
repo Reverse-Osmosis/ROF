@@ -1,0 +1,54 @@
+{
+  "projects": [
+    {
+      "name": "swatChain",
+      "balance": {
+        "value": "0"
+      },
+      "status": "OPEN",
+      "token": "gamm/pool/560",
+      "close": "02 - 11 - 2022",
+      "contract": "osmo12udxa6l93hvwaep6qfxhswxd0klpat3srcqyw3rm8j29x3uepeysjj2jkp"
+    },
+    {
+      "name": "companiesHack",
+      "balance": {
+        "value": "0"
+      },
+      "status": "OPEN",
+      "token": "gamm/pool/560",
+      "close": "02 - 11 - 2022",
+      "contract": "osmo12udxa6l93hvwaep6qfxhswxd0klpat3srcqyw3rm8j29x3uepeysjj2jkp"
+    },
+    {
+      "name": "shoesChain",
+      "balance": {
+        "value": "0"
+      },
+      "status": "OPEN",
+      "token": "shoesChainCoin",
+      "close": "02 - 11 - 2022",
+      "contract": "osmo12udxa6l93hvwaep6qfxhswxd0klpat3srcqyw3rm8j29x3uepeysjj2jkp"
+    },
+    {
+      "name": "capChain",
+      "balance": {
+        "value": "0"
+      },
+      "status": "OPEN",
+      "token": "capChainCoin",
+      "close": "02 - 11 - 2022",
+      "contract": "osmo12udxa6l93hvwaep6qfxhswxd0klpat3srcqyw3rm8j29x3uepeysjj2jkp"
+    },
+    {
+      "name": "yourChain",
+      "balance": {
+        "value": "0"
+      },
+      "status": "OPEN",
+      "token": "yourChainCoin",
+      "close": "03 - 11 - 2022",
+      "contract": "osmo12udxa6l93hvwaep6qfxhswxd0klpat3srcqyw3rm8j29x3uepeysjj2jkp"
+    }
+  ]
+}
