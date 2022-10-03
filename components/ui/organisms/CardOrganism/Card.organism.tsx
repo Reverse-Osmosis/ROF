@@ -23,7 +23,8 @@ const Card = ({
   lockDropBalanceA = "0.13 GAMM/POOL/11 ATOM/CELESTIA",
   lockDropBalanceB = "0.13 GAMM/POOL/12 OSMO/CELESTIA",
   gammUnderlyingTokens = "ATOM,OSMO",
-}: Record<string, string>) => {
+  onClaim = () => {},
+}: Record<string, any>) => {
   let gammTokenArr = gammUnderlyingTokens.split(",");
   let tokenUrl = `https://gradient-avatar.glitch.me/${encodeURIComponent(
     projectName
@@ -146,16 +147,18 @@ const Card = ({
         </CardProjectTokensBG>
       </CardProjectTokensWrapper> */}
       <CardProjectButtonWrapper>
-        <ButtonAtom
-          text="CLAIMED"
-          width="100%"
-          border="0.1rem"
-          borderColor={"white"}
-          hoverBorder="0.1rem"
-          hoverBackgroundColor={"white"}
-          hoverColor={"black"}
-          color={"white"}
-        />
+        <div onClick={onClaim}>
+          <ButtonAtom
+            text="CLAIM"
+            width="100%"
+            border="0.1rem"
+            borderColor={"white"}
+            hoverBorder="0.1rem"
+            hoverBackgroundColor={"white"}
+            hoverColor={"black"}
+            color={"white"}
+          />
+        </div>
       </CardProjectButtonWrapper>
     </CardWrapper>
   );

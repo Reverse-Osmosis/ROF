@@ -1,11 +1,31 @@
 import { MyPools } from "./MyPools.styled";
 import Card from "../../organisms/CardOrganism/Card.organism";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useWallet } from "@cosmos-kit/react";
 import {
   CosmWasmClient,
   SigningCosmWasmClient,
 } from "@cosmjs/cosmwasm-stargate";
+import { Coin, coins } from "@cosmjs/stargate";
+import * as osmojs from "osmojs";
+
+type RewardItem = {
+  gamm_token: string;
+  contract_addr: string;
+  pending_rewards: string;
+};
+type ContractData = {
+  meta: {
+    lockdrop_addr: string;
+    title: string;
+    launchDate: string;
+    gammTokenLabel: string;
+    tokenName: string;
+  };
+  rewards: RewardItem[];
+  stakedValue: string;
+  claimRewards: () => Promise<any>;
+};
 
 const MyPoolsSection = () => {
   const {
@@ -23,6 +43,30 @@ const MyPoolsSection = () => {
   useEffect(() => {
     setCurrentChain("osmosistestnet");
   }, []);
+  let [contractListState, setContractListState] = useState<ContractData[]>([]);
+  let [gammBalances, setGammBalances] = useState<Coin[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      if (!contractListState.length) return;
+      let tokens = new Set<string>();
+      contractListState.forEach((c) => {
+        c.rewards.forEach((r) => tokens.add(r.gamm_token));
+      });
+      let cw = await CosmWasmClient.connect(
+        "https://testnet-rpc.osmosis.zone:443"
+      );
+      let bals = [] as Coin[];
+      for (let t of tokens) {
+        // @ts-ignore
+        let key = (await window.keplr.getKey("osmo-test-4")).bech32Address;
+        console.log({ denom: t });
+        let balance = await cw.getBalance(key, t);
+        bals.push(balance);
+      }
+      setGammBalances(bals);
+    })();
+  }, [contractListState]);
   useEffect(() => {
     if (currentChainName !== "osmosistestnet") {
       return;
@@ -32,7 +76,7 @@ const MyPoolsSection = () => {
         {
           lockdrop_addr:
             "osmo1wulgfp7u08x6an5enwqpmy2alffdaqgyfjg3y8svrfnnflgxla4q04mzj9",
-          title: "Celestia",
+          title: "Wosmosis",
           launchDate: "2022-10-03T14:11:55.008Z",
           gammTokenLabel: "ATOM,OSMO",
           tokenName: "CEL",
@@ -51,7 +95,13 @@ const MyPoolsSection = () => {
             all_reward_contracts: {},
           }
         );
-        let rewards = [];
+        let { value: stakedValue } = currentWallet?.address
+          ? await cw?.queryContractSmart(item.lockdrop_addr, {
+              staked_value: { address: currentWallet?.address },
+            })
+          : { value: "0" };
+
+        let rewards = [] as RewardItem[];
         for (let reward_contract of reward_contracts) {
           // 443;
           // data: config: manager: osmo1wulgfp7u08x6an5enwqpmy2alffdaqgyfjg3y8svrfnnflgxla4q04mzj9;
@@ -77,7 +127,7 @@ const MyPoolsSection = () => {
               })
             : { pending_rewards: "0" };
           rewards.push({
-            gamm_token: reward_token,
+            gamm_token: reward_token.native,
             contract_addr: reward_contract,
             pending_rewards,
           });
@@ -85,43 +135,62 @@ const MyPoolsSection = () => {
         data.push({
           meta: item,
           rewards,
+          stakedValue,
           async claimRewards() {
             //   @ts-ignore
             await window.keplr.enable("osmo-test-4");
             let client = await SigningCosmWasmClient.connectWithSigner(
               "https://testnet-rpc.osmosis.zone:443",
               // @ts-ignore
-              await window.keplr.getOfflineSigner()
+              await window.keplr.getOfflineSignerAuto("osmo-test-4")
             );
-            for (let rwd of this.rewards) {
+            //   @ts-ignore
+            let key = (await window.keplr.getKey("osmo-test-4")).bech32Address;
+            for (let rwd of rewards) {
               await client.execute(
-                currentWallet!.address,
+                key,
                 rwd.contract_addr,
                 {
                   claim: {},
                 },
-                "auto"
+                {
+                  amount: coins("1000000", "uosmo"),
+                  gas: "1000000",
+                }
               );
             }
           },
         });
       }
+      setContractListState(data as []);
       console.log({ data });
     })();
   }, [currentChainName, getCosmWasmClient]);
   return (
-    <MyPools>
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-    </MyPools>
+    <>
+      <MyPools>
+        {contractListState.map((ctr) => {
+          return (
+            <Card
+              key={ctr.meta.lockdrop_addr}
+              projectName={ctr.meta.title}
+              launchDate={ctr.meta.launchDate}
+              lockedGammBalance={ctr.stakedValue + ctr.meta.gammTokenLabel}
+              onClaim={ctr.claimRewards}
+            />
+          );
+        })}
+      </MyPools>
+      <h1>Balances</h1>
+      {gammBalances.map((g) => {
+        return (
+          <div key={g.denom}>
+            {g.amount}
+            {g.denom}
+          </div>
+        );
+      })}
+    </>
   );
 };
 
