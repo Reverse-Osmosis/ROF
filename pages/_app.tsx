@@ -36,7 +36,6 @@ function CreateCosmosApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={defaultTheme}>
       <ThemeProvider theme={theme}>
-        {/*<ChakraProvider theme={defaultTheme}>*/}
         <WalletProvider
           chains={chains}
           assetLists={assets}
@@ -46,7 +45,6 @@ function CreateCosmosApp({ Component, pageProps }: AppProps) {
           <GlobalStyle />
           <Component {...pageProps} />
         </WalletProvider>
-        {/*</ChakraProvider>*/}
       </ThemeProvider>
     </ChakraProvider>
   );

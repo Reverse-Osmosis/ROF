@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const FooterWrapper = styled.footer`
   margin: 22.8rem 0 17rem 0;
   font-size: 1.8rem;
+  color: white;
 `;
 export const BlockInformationWrapper = styled.div`
   display: flex;
