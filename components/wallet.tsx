@@ -42,10 +42,9 @@ export const WalletSection = ({ chainName }: { chainName?: ChainName }) => {
     address,
     message,
     currentWalletName,
-    chains,
   } = walletManager;
 
-  const chainOptions = useMemo(
+  /* const chainOptions = useMemo(
     () =>
       chains.map((chainRecord) => {
         const assets = chainAssets.find(
@@ -62,10 +61,10 @@ export const WalletSection = ({ chainName }: { chainName?: ChainName }) => {
         };
       }),
     [chains]
-  );
+  ); */
 
-  const chain = chainOptions.find((c) => c.chainName === chainName);
-
+  /*   const chain = chainOptions.find((c) => c.chainName === chainName);
+   */
   useEffect(() => {
     setCurrentChain(chainName);
   }, [chainName, setCurrentChain]);

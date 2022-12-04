@@ -5,6 +5,7 @@ export const CardWrapper = styled.div`
   background: linear-gradient(180deg, #221551 0%, #221551 100%);
   width: 35rem;
   //height: 35rem;
+  color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;

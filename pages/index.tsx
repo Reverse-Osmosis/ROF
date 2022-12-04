@@ -8,29 +8,16 @@ import { HackCw20QueryClient } from "../codegen/HackCw20.client";
 
 import {
   Box,
-  Divider,
-  Grid,
   Heading,
-  Text,
-  Stack,
   Container,
-  Link,
-  Button,
-  Flex,
-  Icon,
   useColorMode,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { BsFillMoonStarsFill, BsFillSunFill } from "react-icons/bs";
-import { dependencies, products } from "../config";
 
 import { WalletStatus } from "@cosmos-kit/core";
-import { Product, Dependency, WalletSection } from "../components";
 import Head from "next/head";
 import PopUpAtom from "../components/ui/atoms/PopUpAtom/PopUp.atom";
-import { Layout } from "../styles/Layout.styled";
-import HeaderLayout from "../components/ui/layout/HeaderLayout/Header.layout";
-import FooterLayout from "../components/ui/layout/FooterLayout/Footer.layout";
+
 import MainLayoutLayout from "../components/ui/layout/MainLayout/MainLayout.layout";
 
 import projects from "../data-project/projects.json";
@@ -58,8 +45,6 @@ const coin: Asset = chainassets.assets.find(
 ) as Asset;
 
 export default function Home() {
-  const { colorMode, toggleColorMode } = useColorMode();
-
   const {
     getStargateClient,
     getCosmWasmClient,

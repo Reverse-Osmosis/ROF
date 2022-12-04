@@ -6,6 +6,7 @@ export const HeaderWrapper = styled.header`
   justify-content: space-around;
   align-items: center;
   padding-top: 0.75rem;
+  color: white;
 `;
 
 export const HeaderNavUl = styled.nav`

@@ -1,5 +1,5 @@
 // import {createGlobalStyle} from "styled-components";
-import {createGlobalStyle} from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 // import Jost from '../assets/fonts/Jost-VariableFont_wght.ttf';
 
@@ -34,8 +34,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 1.6rem;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: white;
+    -moz-osx-font-smoothing: grayscale;   
     background-color: #170F34;
   }
 
