@@ -29,6 +29,11 @@ export type cardProps = {
   status?: string;
   onToggle: () => void;
   projectID: number;
+  name: string;
+  launchTime?: string;
+  icon: string
+  locked?: number,
+  claim?: number
 };
 const getProjectIconStatus = (status: string) => {
   switch (status) {
@@ -58,14 +63,14 @@ const getProjectIconStatus = (status: string) => {
   }
 };
 
-const Card = ({ status = Status.REDEEM, onToggle, projectID }: cardProps) => {
+const Card = ({ status = Status.REDEEM, onToggle, projectID, name, launchTime = "", icon, locked, claim }: cardProps) => {
   const dataStatus = getProjectIconStatus(status);
   return (
     <CardWrapper onClick={onToggle}>
       <CardContentWrapper>
         <CardProjectInfoWrapper>
           <CardProjectInfo>
-            <H2Atom text="Project Name" fontSize="1.6rem" fontWeight="700" />
+            <H2Atom text={name} fontSize="1.6rem" fontWeight="700" />
             <CardProjectInfoRRSS>
               <IconAtom
                 src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"
@@ -82,7 +87,7 @@ const Card = ({ status = Status.REDEEM, onToggle, projectID }: cardProps) => {
             </CardProjectInfoRRSS>
           </CardProjectInfo>
           <IconAtom
-            src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"
+            src={icon}
             alt="projectLogo"
             width="5rem"
             height="5rem"
@@ -91,12 +96,12 @@ const Card = ({ status = Status.REDEEM, onToggle, projectID }: cardProps) => {
         {status == Status.OPEN && (
           <CardProjectLaunch>
             <p>Launch Date</p>
-            <H2Atom text="4 Days 04:00:00" margin="1.5rem 0" />
+            <H2Atom text={launchTime} margin="1.5rem 0" />
           </CardProjectLaunch>
         )}
         {(status == Status.CLAIMED || status == Status.REDEEM) && (
           <CardProjectRewardsWrapper>
-            <p>Locked GAMM Balance</p>
+            <p>{`Locked ${name} Balance`} </p>
             <CardProjectRewards>
               <IconAtom
                 src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"
@@ -104,9 +109,9 @@ const Card = ({ status = Status.REDEEM, onToggle, projectID }: cardProps) => {
                 width="1.5rem"
                 height="1.5rem"
               />
-              <p>0.12</p>
+              <p>{`${locked}`}</p>
             </CardProjectRewards>
-            <p>Celestia Lockdrop Balance</p>
+            <p>{`${name} Lockdrop Balance`}</p>
             <CardProjectRewards>
               <IconAtom
                 src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"
@@ -114,7 +119,7 @@ const Card = ({ status = Status.REDEEM, onToggle, projectID }: cardProps) => {
                 width="1.5rem"
                 height="1.5rem"
               />
-              <p>0.13</p>
+              <p>{`${claim}`}</p>
             </CardProjectRewards>
           </CardProjectRewardsWrapper>
         )}
@@ -139,7 +144,7 @@ const Card = ({ status = Status.REDEEM, onToggle, projectID }: cardProps) => {
             </CardProjectTokensBG>
           </CardProjectTokensSubWrapper>
           <IconAtom
-            src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"
+            src={status == Status.CLAIMED ? "https://i.pinimg.com/originals/2c/7d/71/2c7d71a7152a2bcf1953be7c0b3a9e47.jpg" : status == Status.REDEEM ? "https://static.wikia.nocookie.net/powerrangersserie/images/5/57/Prm-red.png/revision/latest/scale-to-width-down/537?cb=20150326150823&path-prefix=es" : "https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"}
             alt="projectDiscord"
             width="4.5rem"
             height="4.5rem"

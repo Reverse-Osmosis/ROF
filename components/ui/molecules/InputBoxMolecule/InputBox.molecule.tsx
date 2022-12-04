@@ -18,6 +18,7 @@ interface Props {
   isProjectAmountInput?: boolean;
   balance?: string;
   balanceToken?: string;
+  type?: string
 }
 
 const InputBoxMolecule = (props: Props) => {
@@ -28,6 +29,7 @@ const InputBoxMolecule = (props: Props) => {
     isProjectAmountInput = false,
     balanceToken = "",
     balance = "",
+    type = "text"
   } = props;
 
   return (
@@ -36,14 +38,14 @@ const InputBoxMolecule = (props: Props) => {
         <InputBoxP>{label}</InputBoxP>
 
         {isProjectAmountInput ? (
-          <ImputAtom />
+          <ImputAtom type={type} placeholder={"0.0"}/>
         ) : (
           <InnputBoxH2>{value}</InnputBoxH2>
         )}
       </InputBoxSubWrapper>
       {isProjectInput && (
         <IconAtom
-          src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"
+          src="osmosICON.svg"
           width="4.2rem"
         />
       )}

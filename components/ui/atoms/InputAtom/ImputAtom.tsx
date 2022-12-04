@@ -5,20 +5,22 @@ interface InputAtomProps {
   value: string;
   onChange;
   placeholder?: string;
+  type: string;
 }
 
 const ImputAtom = (props: InputAtomProps) => {
-  const { label, placeholder, value, onChange } = props;
+  const { label, placeholder, value, onChange, type } = props;
 
   return (
     <div>
       <label>{label}</label>
       <input
-        type="text"
+        type={type}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
         style={{ background: "none", border: "none" }}
+        required
       />
     </div>
   );

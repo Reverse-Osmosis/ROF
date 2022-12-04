@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const PopUpWrapper = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: fixed;
+  top: 50%;
+  left: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,6 +11,7 @@ export const PopUpWrapper = styled.div`
   min-height: 100vh;
   width: 100%;
   height: 100%;
+  transform: translate(-50%, -50%);
 `;
 
 export const PopUpSubWrapper = styled.div`
