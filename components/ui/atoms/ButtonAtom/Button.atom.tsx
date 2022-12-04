@@ -1,6 +1,7 @@
 import { Button } from "./Button.styled";
 
 interface ButtonAtomProps {
+  type?: "button" | "submit" | "reset" | undefined;
   background?: string;
   backgroundColor?: string;
   border?: string;
@@ -36,6 +37,7 @@ const ButtonAtom = (props: ButtonAtomProps) => {
   `;
 
   const {
+    type = undefined,
     background = backgroundGradient,
     backgroundColor = "transparent",
     border = "0",
@@ -62,6 +64,7 @@ const ButtonAtom = (props: ButtonAtomProps) => {
   } = props;
   return (
     <Button
+      type={type}
       background={background}
       backgroundColor={backgroundColor}
       border={border}

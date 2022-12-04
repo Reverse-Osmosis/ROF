@@ -7,8 +7,10 @@
       },
       "status": "OPEN",
       "token": "gamm/pool/560",
-      "close": "02 - 11 - 2022",
-      "contract": "osmo12udxa6l93hvwaep6qfxhswxd0klpat3srcqyw3rm8j29x3uepeysjj2jkp"
+      "launch": "02 - 11 - 2022",
+      "contract": "osmo12udxa6l93hvwaep6qfxhswxd0klpat3srcqyw3rm8j29x3uepeysjj2jkp",
+      "icon": "https://i.pinimg.com/originals/2c/7d/71/2c7d71a7152a2bcf1953be7c0b3a9e47.jpg",
+      "time": "6"
     },
     {
       "name": "companiesHack",
@@ -17,8 +19,10 @@
       },
       "status": "OPEN",
       "token": "gamm/pool/560",
-      "close": "02 - 11 - 2022",
-      "contract": "osmo12udxa6l93hvwaep6qfxhswxd0klpat3srcqyw3rm8j29x3uepeysjj2jkp"
+      "launch": "02 - 11 - 2022",
+      "contract": "osmo12udxa6l93hvwaep6qfxhswxd0klpat3srcqyw3rm8j29x3uepeysjj2jkp",
+      "icon": "https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745",
+      "time": "8"
     },
     {
       "name": "shoesChain",
@@ -27,28 +31,36 @@
       },
       "status": "OPEN",
       "token": "shoesChainCoin",
-      "close": "02 - 11 - 2022",
-      "contract": "osmo12udxa6l93hvwaep6qfxhswxd0klpat3srcqyw3rm8j29x3uepeysjj2jkp"
+      "launch": "02 - 11 - 2022",
+      "contract": "osmo12udxa6l93hvwaep6qfxhswxd0klpat3srcqyw3rm8j29x3uepeysjj2jkp",
+      "icon": "https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745",
+      "time": "10"
     },
     {
       "name": "capChain",
       "balance": {
         "value": "0"
       },
-      "status": "OPEN",
+      "status": "REDEEM",
       "token": "capChainCoin",
-      "close": "02 - 11 - 2022",
-      "contract": "osmo12udxa6l93hvwaep6qfxhswxd0klpat3srcqyw3rm8j29x3uepeysjj2jkp"
+      "contract": "osmo12udxa6l93hvwaep6qfxhswxd0klpat3srcqyw3rm8j29x3uepeysjj2jkp",
+      "icon": "https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745",
+      "amount_locked": 12,
+      "amount_to_claim": 0.1,
+      "time": "4"
     },
     {
       "name": "yourChain",
       "balance": {
         "value": "0"
       },
-      "status": "OPEN",
+      "status": "CLAIMED",
       "token": "yourChainCoin",
-      "close": "03 - 11 - 2022",
-      "contract": "osmo12udxa6l93hvwaep6qfxhswxd0klpat3srcqyw3rm8j29x3uepeysjj2jkp"
+      "contract": "osmo12udxa6l93hvwaep6qfxhswxd0klpat3srcqyw3rm8j29x3uepeysjj2jkp",
+      "icon": "https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745",
+      "amount_locked": 14,
+      "amount_to_claim": 0.1,
+      "time": "12"
     }
   ]
 }

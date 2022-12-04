@@ -62,6 +62,7 @@ export default function Home() {
   const [listProjects, setListProject] = useState(projects.projects);
   const [projectId, setProjectId] = useState(0);
   const [showPopUp, setshowPopUp] = useState(false);
+  const [infoProject, setInfoProject] = useState({name: "", timeLock: "", idContract: ""})
   // get cw20 balance
   const [cw20Client, setCw20Client] = useState<HackCw20QueryClient | null>(
     null
@@ -136,11 +137,17 @@ export default function Home() {
               {listProjects.map((el, index) => (
                 <Card
                   key={index}
-                  status={el?.status}
+                  status={el.status}
+                  name={el.name}
                   onToggle={() => {
                     setProjectId(index);
+                    setInfoProject({name: el.name, time: el.time, contract: el.contract})
                     setshowPopUp(true);
                   }}
+                  launchTime={el?.launch}
+                  icon={el?.icon}
+                  locked={el?.amount_locked}
+                  claim={el?.amount_to_claim}
                   projectID={index}
                 />
               ))}
@@ -180,8 +187,10 @@ export default function Home() {
           <PopUpAtom
             setShow={setshowPopUp}
             onToggle={() => {
+              console.log("oe oe todo a 1000")
               alert("se genera el aporte");
             }}
+            infoProject = {infoProject}
           />
         )}
       </>
