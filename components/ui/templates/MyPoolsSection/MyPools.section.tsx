@@ -69,10 +69,10 @@ const MyPoolsSection = () => {
           // denom: native: gamm / pool / 691;
           // last_update_block: 6.978863e6;
           // pending_rewards: "99999999999999999984";
-          let { pending_rewards } = currentWallet?.address
+          let { pending_rewards } = currentWallet?.data?.address
             ? await cw.queryContractSmart(reward_contract, {
                 get_pending_rewards: {
-                  address: currentWallet?.address,
+                  address: currentWallet.data?.address,
                 },
               })
             : { pending_rewards: "0" };

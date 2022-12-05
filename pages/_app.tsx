@@ -27,11 +27,11 @@ function CreateCosmosApp({ Component, pageProps }: AppProps) {
 
   const wallets = [keplrExtension, KeplrMobile];
 
-  /*   const signerOptions: SignerOptions = {
-    stargate: (_chain: Chain) => {
+  const signerOptions: SignerOptions = {
+    signingStargate: (_chain: Chain) => {
       return getSigningCosmosClientOptions();
     },
-    cosmwasm: (chain: Chain) => {
+    signingCosmwasm: (chain: Chain) => {
       switch (chain.chain_name) {
         case "osmosis":
           return {
@@ -43,7 +43,7 @@ function CreateCosmosApp({ Component, pageProps }: AppProps) {
           };
       }
     },
-  }; */
+  };
 
   return (
     <ChakraProvider theme={defaultTheme}>
@@ -52,8 +52,12 @@ function CreateCosmosApp({ Component, pageProps }: AppProps) {
           chains={chains}
           assetLists={assets}
           wallets={wallets}
-          /*           signerOptions={signerOptions}
-           */
+          signerOptions={signerOptions}
+          endpointOptions={{
+            localosmosis: {
+              rpc: ["https://testnet-rpc.osmosis.zone:443"],
+            },
+          }}
         >
           <GlobalStyle />
           <Component {...pageProps} />

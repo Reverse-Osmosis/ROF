@@ -1,14 +1,5 @@
 import { useWallet } from "@cosmos-kit/react";
-import {
-  Box,
-  Center,
-  Grid,
-  GridItem,
-  Icon,
-  Stack,
-  useColorModeValue,
-  Text,
-} from "@chakra-ui/react";
+import { Icon } from "@chakra-ui/react";
 import { MouseEventHandler, useEffect, useMemo } from "react";
 import { FiAlertTriangle } from "react-icons/fi";
 import {
@@ -25,7 +16,6 @@ import {
   Rejected,
   RejectedWarn,
   WalletConnectComponent,
-  ChainCard,
 } from "../components";
 import { getWalletPrettyName } from "@cosmos-kit/config";
 import { ChainName } from "@cosmos-kit/core";
